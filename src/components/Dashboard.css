@@ -1,0 +1,179 @@
+/* Dashboard.css — updated to fix logo / button overlap */
+
+/* --- Top Bar (logo left + buttons right) --- */
+.dash-top-bar {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 60; /* high so it sits above hero */
+  pointer-events: auto;
+}
+
+/* logo inside the top bar */
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+
+/* logo image */
+.dashboard-logo {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(0, 170, 255, 0.6));
+  z-index: 61;
+}
+
+.dashboard-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 12px rgba(0, 170, 255, 0.9));
+}
+
+/* buttons container on the right of top bar */
+.dash-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* button style */
+.dash-btn {
+  background-color: #00aaff;
+  color: #000;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.18s ease;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.36);
+}
+
+.dash-btn:hover {
+  background-color: #008fcc;
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(0, 170, 255, 0.56);
+}
+
+/* --- Dashboard base (unchanged except z-index ordering) --- */
+.dashboard {
+  background-color: #0a0a0a;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1502877338535-766e1452684a");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* keep hero under top-bar */
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 10px #00aaff;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #d1d1d1;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Feature Cards --- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 3rem 5%;
+}
+
+.feature-card {
+  background: linear-gradient(145deg, #121212, #1e1e1e);
+  border: 1px solid rgba(0, 170, 255, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+  border-color: rgba(0, 170, 255, 0.6);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: #00aaff;
+  margin-bottom: 1rem;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Dashboard top-bar alignment patch (append at end of Dashboard.css) ===== */
+.dash-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start; /* keep items in a row; buttons will be pushed by margin-left:auto */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20px;
+  padding: 0 40px;
+  z-index: 9999;
+}
+
+.dash-top-bar .logo-container {
+  /* ensure logo sits to the left and won't expand */
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.dash-top-bar .dash-buttons {
+  margin-left: auto;    /* <-- this pushes the buttons to the far right */
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}

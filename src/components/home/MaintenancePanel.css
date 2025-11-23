@@ -1,0 +1,137 @@
+/* src/components/home/maintenance.css */
+
+/* container */
+.maintenance-panel {
+  background: linear-gradient(145deg, #0b0b0b, #0f0f10);
+  border: 1px solid rgba(0, 170, 255, 0.12);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0,170,255,0.03) inset;
+  color: #fff;
+}
+
+/* header */
+.mp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.mp-header h2 { margin: 0; color: #00aaff; font-size: 1.2rem; }
+.mp-sub { margin: 0; color: #bcdff5; font-size: 0.9rem; opacity: 0.9; }
+
+/* form row */
+.mp-form { margin-bottom: 12px; }
+.mp-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* inputs */
+.mp-input {
+  background: #0b0b0b;
+  border: 1px solid rgba(0,170,255,0.14);
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #eaf6ff;
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0,170,255,0.03) inset;
+  transition: box-shadow 0.18s ease, transform 0.12s ease, border-color 0.12s ease;
+  min-width: 220px;
+}
+.mp-input:focus {
+  border-color: rgba(0,170,255,0.45);
+  box-shadow: 0 8px 24px rgba(0,170,255,0.08);
+  transform: translateY(-2px);
+}
+.mp-input-small { min-width: 140px; }
+
+/* errors */
+.mp-error {
+  color: #ff6b6b;
+  background: rgba(255, 100, 100, 0.06);
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* actions */
+.mp-actions { margin-top: 10px; display:flex; gap: 10px; align-items:center; }
+.mp-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.mp-btn-primary {
+  background: linear-gradient(90deg,#00aaff,#00c0ff);
+  color: #000;
+  box-shadow: 0 6px 18px rgba(0,170,255,0.18);
+}
+.mp-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,170,255,0.28); }
+.mp-btn-ghost {
+  background: transparent;
+  color: #e6f7ff;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* separators */
+.mp-sep {
+  border: none;
+  border-top: 1px dashed rgba(255,255,255,0.03);
+  margin: 12px 0;
+}
+
+/* list */
+.mp-list { list-style:none; padding:0; margin: 0; display:flex; flex-direction: column; gap: 10px; }
+.mp-item {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border: 1px solid rgba(255,255,255,0.02);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.mp-item:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.6); }
+
+/* completed / overdue */
+.mp-item.completed { opacity: 0.6; filter: grayscale(0.12); }
+.mp-item.overdue { box-shadow: 0 0 18px rgba(255, 70, 70, 0.08); border-color: rgba(255,70,70,0.12); }
+
+/* left content */
+.mp-item-left { display:flex; flex-direction: column; gap: 6px; }
+.mp-item-title { font-weight: 700; color: #e6f7ff; }
+.mp-meta { color: #9fbad9; font-size: 0.9rem; }
+
+/* small action buttons */
+.mp-item-actions { display:flex; gap: 8px; align-items:center; }
+.mp-small {
+  background: #101214;
+  color: #e6f7ff;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.08s ease, box-shadow 0.12s ease;
+}
+.mp-small:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.6); }
+.mp-small.danger { background: rgba(255, 60, 60, 0.06); color: #ff9b9b; border-color: rgba(255,60,60,0.08); }
+
+/* section titles / empty */
+.mp-section-title { color: #00aaff; margin-bottom: 6px; }
+.mp-empty { color: #9fbad9; padding: 8px 0; }
+.mp-empty.small { font-size: 0.95rem; opacity: 0.9; }
+
+/* responsiveness */
+@media (max-width: 760px) {
+  .mp-row { flex-direction: column; align-items: stretch; }
+  .mp-input { min-width: 100%; }
+  .mp-input-small { min-width: 100%; }
+  .mp-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .mp-item-actions { width: 100%; justify-content: flex-end; }
+}
