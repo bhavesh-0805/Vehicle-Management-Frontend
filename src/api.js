@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // adjust if needed
+  baseURL: "https://vehicle-management-backend-3zzk.onrender.com", // adjust if needed
 });
 
 // ✅ On app start, immediately set token if it exists
